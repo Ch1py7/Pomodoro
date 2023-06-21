@@ -5,7 +5,7 @@ import { Options } from '../Options'
 export const SettingsScreen: FC = (): ReactElement => {
   return (
     <View style={styles.container}>
-      <Options />
+      <View style={styles.settingsContainer}></View>
     </View>
   )
 }
@@ -16,5 +16,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#2E1B1B',
     alignItems: 'center',
     justifyContent: 'space-between',
+  },
+
+  settingsContainer: {
+    marginTop: 50,
   },
 })

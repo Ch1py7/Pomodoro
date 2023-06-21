@@ -8,6 +8,7 @@ export const WhichPomodoro: FC = (): ReactElement => {
       <View style={styles.sPomodoro}></View>
       <View style={styles.tPomodoro}></View>
       <View style={styles.foPomodoro}></View>
+      <View style={styles.line}></View>
     </View>
   )
 }
@@ -15,10 +16,19 @@ export const WhichPomodoro: FC = (): ReactElement => {
 const styles = StyleSheet.create({
   container: {
     position: 'relative',
-    backgroundColor: '#AB4848',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     width: 140,
+    height: 20,
+  },
+
+  line: {
+    position: 'absolute',
+    top: '50%',
+    left: 0,
+    right: 0,
+    transform: [{ translateY: -2 }],
+    backgroundColor: '#AB4848',
     height: 3,
   },
 

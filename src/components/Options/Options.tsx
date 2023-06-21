@@ -1,11 +1,14 @@
 import { FontAwesome, FontAwesome5, Ionicons } from '@expo/vector-icons'
 import { FC, ReactElement } from 'react'
-import { StyleSheet, View } from 'react-native'
+import { KeyboardAvoidingView, StyleSheet } from 'react-native'
 import { Link } from 'react-router-native'
 
 export const Options: FC = (): ReactElement => {
   return (
-    <View style={styles.optionsContainer}>
+    <KeyboardAvoidingView
+      behavior='padding'
+      style={styles.optionsContainer}
+    >
       <Link to='/tasks'>
         <FontAwesome5 name='tasks' size={40} color='#BDBDBD' />
       </Link>
@@ -18,16 +21,19 @@ export const Options: FC = (): ReactElement => {
       <Link to='/user'>
         <FontAwesome name='user' size={40} color='#BDBDBD' />
       </Link>
-    </View>
+    </KeyboardAvoidingView>
   )
 }
 
 const styles = StyleSheet.create({
   optionsContainer: {
+    position: 'absolute',
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: 300,
-    paddingBottom: 20,
+    justifyContent: 'space-evenly',
+    left: 0,
+    bottom: 20,
+    width: '100%',
+    height: 40,
   },
 
   option: {

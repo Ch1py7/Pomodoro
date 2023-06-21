@@ -1,6 +1,5 @@
 import { FC, ReactElement } from 'react'
-import { KeyboardAvoidingView, StyleSheet, View } from 'react-native'
-import { Options } from '../Options'
+import { StyleSheet, View } from 'react-native'
 import { Pause } from './Pause'
 import { TaskInput } from './TaskInput'
 import { Watch } from './Watch'
@@ -13,9 +12,6 @@ export const PomodoroScreen: FC = (): ReactElement => {
       <Watch />
       <WhichPomodoro />
       <Pause />
-      <KeyboardAvoidingView behavior='padding'>
-        <Options />
-      </KeyboardAvoidingView>
     </View>
   )
 }
@@ -25,6 +21,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#2E1B1B',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    height: '100%',
+    width: '100%',
+    paddingTop: 40,
+    gap: 60,
   },
 })

@@ -14,7 +14,6 @@ export const TasksScreen: FC = (): ReactElement => {
           </View>
         ))}
       </View>
-      <Options />
     </View>
   )
 }
