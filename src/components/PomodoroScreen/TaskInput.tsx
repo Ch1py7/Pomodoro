@@ -15,6 +15,10 @@ export const TaskInput: FC = (): ReactElement => {
         style={styles.input}
         value={taskList}
         onSubmitEditing={Keyboard.dismiss}
+        onKeyPress={(e) => {
+          if (e.nativeEvent.key === 'Enter') {
+            tasks(taskList), setTaskList(''), Keyboard.dismiss()
+        } }}
       />
       <Pressable
         style={styles.checkIcon}
