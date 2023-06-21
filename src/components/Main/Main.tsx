@@ -2,6 +2,9 @@ import { FC, ReactElement, useState } from 'react'
 import { Route, Routes } from 'react-router-native'
 import { DataContext } from '../../context/data.context'
 import { PomodoroScreen } from '../PomodoroScreen'
+import { SettingsScreen } from '../SettingsScreen'
+import { TasksScreen } from '../TasksScreen'
+import { UserScreen } from '../UserScreen'
 
 export const Main: FC = (): ReactElement => {
   const [tasksList, setTasksList] = useState<string[]>([])
@@ -24,7 +27,10 @@ export const Main: FC = (): ReactElement => {
       }}
     >
       <Routes>
+        <Route path='/tasks' Component={TasksScreen} />
         <Route path='/' Component={PomodoroScreen} />
+        <Route path='/settings' Component={SettingsScreen} />
+        <Route path='/user' Component={UserScreen} />
       </Routes>
     </DataContext.Provider>
   )
