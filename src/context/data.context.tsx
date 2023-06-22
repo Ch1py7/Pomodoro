@@ -8,6 +8,8 @@ interface DataContextState {
   setSeconds: Dispatch<SetStateAction<number>>
   seconds: number
   tasks: (task: string) => void
+  setSections: Dispatch<SetStateAction<number>>
+  sections: number
 }
 
 export const DataContext = createContext<DataContextState>({
@@ -15,7 +17,9 @@ export const DataContext = createContext<DataContextState>({
   tasksList: [],
   setMinutes: () => {},
   minutes: 0,
-  setSeconds: () => { },
+  setSeconds: () => {},
   seconds: 0,
   tasks: () => {},
+  setSections: () => {},
+  sections: 4,
 })
