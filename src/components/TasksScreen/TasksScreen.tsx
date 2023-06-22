@@ -1,7 +1,6 @@
 import { FC, ReactElement, useContext } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { DataContext } from '../../context/data.context'
-import { Options } from '../Options'
 
 export const TasksScreen: FC = (): ReactElement => {
   const { tasksList } = useContext(DataContext)

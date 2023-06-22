@@ -1,11 +1,19 @@
-import { Ionicons } from '@expo/vector-icons'
-import { FC, ReactElement } from 'react'
-import { StyleSheet, View } from 'react-native'
+import { AntDesign, Ionicons } from '@expo/vector-icons'
+import { FC, ReactElement, useState } from 'react'
+import { Pressable, StyleSheet, View } from 'react-native'
 
 export const Pause: FC = (): ReactElement => {
+  const [pause, setPause] = useState<boolean>(true)
+
   return (
-    <View style={styles.pause}>
-      <Ionicons name='pause-sharp' size={44} color='#fafafa' />
+    <View>
+      <Pressable onPress={() => setPause((prev) => !prev)} style={styles.pause}>
+        {pause ? (
+          <AntDesign name='caretright' size={24} color='#fafafa' />
+        ) : (
+          <Ionicons name='pause-sharp' size={44} color='#fafafa' />
+        )}
+      </Pressable>
     </View>
   )
 }

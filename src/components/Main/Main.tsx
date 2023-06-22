@@ -8,7 +8,8 @@ import { UserScreen } from '../UserScreen'
 
 export const Main: FC = (): ReactElement => {
   const [tasksList, setTasksList] = useState<string[]>([])
-  const [pomodoroTime, setPomodoroTime] = useState<string>('05:45')
+  const [minutes, setMinutes] = useState<number>(0)
+  const [seconds, setSeconds] = useState<number>(0)
 
   const tasks = (task: string) => {
     if (task === '') return
@@ -21,8 +22,10 @@ export const Main: FC = (): ReactElement => {
       value={{
         tasksList,
         setTasksList,
-        pomodoroTime,
-        setPomodoroTime,
+        minutes,
+        setMinutes,
+        setSeconds,
+        seconds,
         tasks,
       }}
     >
