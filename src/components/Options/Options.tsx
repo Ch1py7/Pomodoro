@@ -3,12 +3,11 @@ import { FC, ReactElement, useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet } from 'react-native'
 import { Link } from 'react-router-native'
 
-
 export const Options: FC = (): ReactElement => {
   const [isPressed, setIsPressed] = useState<boolean[]>(
     new Array(4).fill(false)
   )
-  
+
   const handlePress = (index: number) => {
     setIsPressed((prevState) => {
       return prevState.map((_, i) => i === index - 1)

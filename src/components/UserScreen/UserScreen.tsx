@@ -1,6 +1,5 @@
 import { FC, ReactElement } from 'react'
 import { StyleSheet, View } from 'react-native'
-import { Options } from '../Options'
 
 export const UserScreen: FC = (): ReactElement => {
   return (

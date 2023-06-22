@@ -8,8 +8,9 @@ import { UserScreen } from '../UserScreen'
 
 export const Main: FC = (): ReactElement => {
   const [tasksList, setTasksList] = useState<string[]>([])
-  const [minutes, setMinutes] = useState<number>(0)
-  const [seconds, setSeconds] = useState<number>(0)
+  const [minutes, setMinutes] = useState<number>(30)
+  const [seconds, setSeconds] = useState<number>(60)
+  const [sections, setSections] = useState<number>(4)
 
   const tasks = (task: string) => {
     if (task === '') return
@@ -20,6 +21,8 @@ export const Main: FC = (): ReactElement => {
   return (
     <DataContext.Provider
       value={{
+        sections,
+        setSections,
         tasksList,
         setTasksList,
         minutes,

@@ -18,7 +18,8 @@ export const TaskInput: FC = (): ReactElement => {
         onKeyPress={(e) => {
           if (e.nativeEvent.key === 'Enter') {
             tasks(taskList), setTaskList(''), Keyboard.dismiss()
-        } }}
+          }
+        }}
       />
       <Pressable
         style={styles.checkIcon}

@@ -3,13 +3,11 @@ import { StyleSheet, Text, View } from 'react-native'
 import { DataContext } from '../../context/data.context'
 
 export const Watch: FC = (): ReactElement => {
-  const { minutes, seconds } = useContext(DataContext)
+  const { minutes } = useContext(DataContext)
 
   return (
     <View style={styles.timerContainer}>
-      <Text style={styles.timer}>
-        {minutes}:{seconds}
-      </Text>
+      <Text style={styles.timer}>{minutes} min</Text>
     </View>
   )
 }
