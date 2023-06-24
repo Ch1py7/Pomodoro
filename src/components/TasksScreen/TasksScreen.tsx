@@ -12,7 +12,15 @@ export const TasksScreen: FC = (): ReactElement => {
 
   return (
     <View style={styles.container}>
-      <Text style={{color: 'blue', fontSize: 24, marginTop: 25}}>jesucristo</Text>
+      <Text
+        style={{
+          color: '#fafafa',
+          fontSize: 24,
+          marginTop: 50,
+        }}
+      >
+        Your tasks
+      </Text>
       <View style={styles.tasksContainer}>
         {tasksList
           .filter((task) => task !== undefined)
@@ -23,9 +31,10 @@ export const TasksScreen: FC = (): ReactElement => {
                   fontSize: 20,
                   color: '#fafafa',
                   paddingHorizontal: 10,
+                  paddingRight: 70,
                 }}
               >
-                {task}
+                {task.substring(0, 21) + '...'}
               </Text>
               <Pressable
                 style={styles.checkIcon}
@@ -60,7 +69,7 @@ const styles = StyleSheet.create({
 
   tasksContainer: {
     marginTop: 25,
-    height: '90%',
+    flex: 1,
   },
 
   tasks: {
@@ -73,6 +82,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     borderRadius: 10,
     marginVertical: 10,
+    overflow: 'hidden',
   },
 
   checkIcon: {
