@@ -1,12 +1,5 @@
 import { AntDesign } from '@expo/vector-icons'
-import {
-  FC,
-  ReactElement,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react'
+import { FC, ReactElement, useContext, useState } from 'react'
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import { DataContext } from '../../context/data.context'
 
@@ -14,31 +7,22 @@ export const SettingsScreen: FC = (): ReactElement => {
   const [isPressed, setIsPressed] = useState<boolean[]>(
     new Array(4).fill(false)
   )
-  const { setMinutes, setSections, sections } = useContext(DataContext)
+  const {
+    setMinutes,
+    setSections,
+    sections,
+    setShortBreak,
+    setLongBreak,
+    shortBreak,
+    longBreak,
+  } = useContext(DataContext)
   const [focusedTime, setFocusedTime] = useState<number>(30)
-  const [shortBreak, setShortBreak] = useState<number>(4)
-  const [longBreak, setLongBreak] = useState<number>(20)
-
-  const countDown = useMemo(() => new Date(1798823570000).getTime(), [])
 
   const handlePress = (index: number) => {
     setIsPressed((prevState) => {
       return prevState.map((_, i) => i === index - 1)
     })
   }
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date().getTime()
-      const diff = countDown - now
-      if (diff < 0) {
-        clearInterval(interval)
-      }
-    }, 1000)
-    return () => {
-      clearInterval(interval)
-    }
-  }, [countDown])
 
   return (
     <View style={styles.container}>
@@ -335,6 +319,7 @@ export const SettingsScreen: FC = (): ReactElement => {
 const styles = StyleSheet.create({
   container: {
     height: '100%',
+    width: '100%',
     backgroundColor: '#2E1B1B',
     alignItems: 'center',
     justifyContent: 'space-between',

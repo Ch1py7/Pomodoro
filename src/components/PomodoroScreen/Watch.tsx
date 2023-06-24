@@ -3,11 +3,14 @@ import { StyleSheet, Text, View } from 'react-native'
 import { DataContext } from '../../context/data.context'
 
 export const Watch: FC = (): ReactElement => {
-  const { minutes } = useContext(DataContext)
-
+  const { minutesToShow, isBreak, shortBreakToShow } = useContext(DataContext)
   return (
     <View style={styles.timerContainer}>
-      <Text style={styles.timer}>{minutes} min</Text>
+      {isBreak ? (
+        <Text style={styles.timer}>{Math.floor(shortBreakToShow)} min</Text>
+      ) : (
+        <Text style={styles.timer}>{Math.floor(minutesToShow)} min</Text>
+      )}
     </View>
   )
 }
