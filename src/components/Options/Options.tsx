@@ -1,4 +1,4 @@
-import { FontAwesome, FontAwesome5, Ionicons } from '@expo/vector-icons'
+import { FontAwesome5, Ionicons } from '@expo/vector-icons'
 import { FC, ReactElement, useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet } from 'react-native'
 import { Link } from 'react-router-native'
@@ -43,17 +43,6 @@ export const Options: FC = (): ReactElement => {
           name='options'
           size={40}
           color={isPressed[2] ? '#FF3131' : '#BDBDBD'}
-        />
-      </Link>
-      <Link
-        to='/user'
-        onPress={() => handlePress(4)}
-        underlayColor='transparent'
-      >
-        <FontAwesome
-          name='user'
-          size={40}
-          color={isPressed[3] ? '#FF3131' : '#BDBDBD'}
         />
       </Link>
     </KeyboardAvoidingView>

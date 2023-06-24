@@ -4,13 +4,17 @@ import { DataContext } from '../../context/data.context'
 import { PomodoroScreen } from '../PomodoroScreen'
 import { SettingsScreen } from '../SettingsScreen'
 import { TasksScreen } from '../TasksScreen'
-import { UserScreen } from '../UserScreen'
 
 export const Main: FC = (): ReactElement => {
   const [tasksList, setTasksList] = useState<string[]>([])
   const [minutes, setMinutes] = useState<number>(30)
-  const [seconds, setSeconds] = useState<number>(60)
+  const [minutesToShow, setMinutesToShow] = useState<number>(60)
   const [sections, setSections] = useState<number>(4)
+  const [isPause, setIsPause] = useState<boolean>(true)
+  const [shortBreak, setShortBreak] = useState<number>(4)
+  const [longBreak, setLongBreak] = useState<number>(20)
+  const [isBreak, setIsBreak] = useState<boolean>(false)
+  const [shortBreakToShow, setShortBreakToShow] = useState<number>(0)
 
   const tasks = (task: string) => {
     if (task === '') return
@@ -21,14 +25,24 @@ export const Main: FC = (): ReactElement => {
   return (
     <DataContext.Provider
       value={{
+        shortBreakToShow,
+        setShortBreakToShow,
+        isBreak,
+        setIsBreak,
+        shortBreak,
+        setShortBreak,
+        longBreak,
+        setLongBreak,
+        isPause,
+        setIsPause,
         sections,
         setSections,
         tasksList,
         setTasksList,
         minutes,
         setMinutes,
-        setSeconds,
-        seconds,
+        setMinutesToShow,
+        minutesToShow,
         tasks,
       }}
     >
@@ -36,7 +50,6 @@ export const Main: FC = (): ReactElement => {
         <Route path='/tasks' Component={TasksScreen} />
         <Route path='/' Component={PomodoroScreen} />
         <Route path='/settings' Component={SettingsScreen} />
-        <Route path='/user' Component={UserScreen} />
       </Routes>
     </DataContext.Provider>
   )

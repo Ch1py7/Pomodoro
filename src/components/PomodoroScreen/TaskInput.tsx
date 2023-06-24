@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
     color: '#fafafa',
     fontSize: 20,
     paddingHorizontal: 20,
+    paddingRight: 50,
   },
   checkIcon: {
     position: 'absolute',
